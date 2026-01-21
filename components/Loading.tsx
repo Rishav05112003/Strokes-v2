@@ -39,7 +39,7 @@ export default function Loader({ onComplete }: LoaderProps) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black text-white font-serif">
+    <div className="h-full w-full flex flex-col items-center justify-center bg-black text-white font-serif relative">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
