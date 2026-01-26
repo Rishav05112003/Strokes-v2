@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Hero from "@/components/Hero"; // Renamed from Gallery for clarity
 import Loader from "@/components/Loading";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +41,7 @@ export default function Home() {
         When the loader slides up, this is revealed.
       */}
       <div className="relative z-0">
+        <Navbar/>
         <Hero />
         
         {/* Footer / Contact */}

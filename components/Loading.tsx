@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedButton from "./AnimatedButton";
 import Image from "next/image";
 
 interface LoaderProps {
@@ -13,7 +14,7 @@ export default function Loader({ onComplete }: LoaderProps) {
   const [isReady, setIsReady] = useState(false);
 
   // 1. Configuration: Change your background image here
-  const bgImageSrc = "loading.jpg"; // Make sure this file exists in public/images/
+  const bgImageSrc = "/loading.jpg"; 
 
   useEffect(() => {
     // 2. Logic: Check if user has visited before to speed up loading
@@ -43,7 +44,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/loading.jpg"
+          src={bgImageSrc}
           alt="Loading Background"
           fill
           priority // Loads the image immediately since it's above the fold (critical for a loader)
@@ -58,7 +59,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         <p className="font-sans text-sm tracking-[0.4em] text-gray-400 mb-4 animate-pulse">
           Lumen Artspace
         </p>
-        <h1 className="text-5xl md:text-7xl leading-none mb-12">
+        <h1 className="text-5xl md:text-9xl leading-none mb-12">
           HERITAGE <br /> IN ART
         </h1>
 
@@ -80,14 +81,12 @@ export default function Loader({ onComplete }: LoaderProps) {
               </div>
             </div>
           ) : (
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              onClick={onComplete} // Triggers the page switch
-              className="px-8 py-3 border border-white/20 rounded-full font-sans text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-black hover:scale-105 transition-all duration-500"
+            <AnimatedButton
+              onClick={onComplete}
+              className="px-10 py-4 text-sm" // Example: Making it slightly larger than default
             >
               Visit Gallery
-            </motion.button>
+            </AnimatedButton>
           )}
         </div>
       </div>
