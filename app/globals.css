@@ -49,3 +49,40 @@ body {
   background-color: var(--color-charcoal);
   color: white;
 }
+
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px); /* Starts 100px to the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px); /* Ends at natural position */
+  }
+}
+
+/* 2. Keyframes for appearing from the Right */
+@keyframes appear-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px); /* Starts 100px to the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* 3. The Scroll Timeline Classes */
+.reveal-left {
+  animation: appear linear ;
+  /* The exact properties from your screenshot */
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%; 
+}
+
+.reveal-right {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}

@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Hero from "@/components/Hero"; // Renamed from Gallery for clarity
+import Hero from "@/components/home/Hero"
+import Journey from "@/components/home/Journey";
 import Loader from "@/components/Loading";
 import Navbar from "@/components/Navbar";
+import Impressions from "@/components/home/Impressions";
+import Masterpieces from "@/components/home/Masterpieces";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,8 +45,10 @@ export default function Home() {
       */}
       <div className="relative z-0">
         <Navbar/>
-        <Hero />
-        
+        <Hero/>
+        <Journey/>
+        <Impressions/>
+        <Masterpieces/>
         {/* Footer / Contact */}
         <section className="h-[50vh] flex flex-col items-center justify-center border-t border-white/10 mt-20">
           <h2 className="font-serif text-4xl text-gray-500 hover:text-white transition-colors cursor-pointer">

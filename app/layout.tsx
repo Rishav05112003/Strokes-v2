@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import {TransitionProvider} from "@/context/TransitionContext";
+import PageTransitionLoader from "@/components/PageTransitionLoader";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -29,7 +31,9 @@ export default function RootLayout({
     // Add both font variables to the html tag
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="antialiased bg-black text-white selection:bg-[#d4af37] selection:text-black">
+        <TransitionProvider>
         {children}
+        </TransitionProvider>
       </body>
     </html>
   );
